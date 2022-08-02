@@ -30,9 +30,6 @@ jobs:
         run: dotnet restore SW.VideoUploadService.TacticalSolutionApp.sln
       - name: Build
         run: dotnet build SW.VideoUploadService.TacticalSolutionApp.sln --configuration Release --no-restore
-      - name: Test
-        run: dotnet test SW.VideoUploadService.Core.Tests.csproj --no-restore --verbosity normal
-        working-directory: SW.VideoUploadService.Core.Tests
-        
+  
         # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
