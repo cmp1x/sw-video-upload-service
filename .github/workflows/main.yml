@@ -27,9 +27,12 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
-        run: dotnet restore SW.VideoUploadService.TacticalSolutionApp.sln
+        run: dotnet restore SW.VideoUploadService.sln
       - name: Build
-        run: dotnet build SW.VideoUploadService.TacticalSolutionApp.sln --configuration Release --no-restore
-  
+        run: dotnet build SW.VideoUploadService.sln --configuration Release --no-restore
+      #- name: Test
+      #  run: dotnet test SW.VideoUploadService.Core.Tests.csproj --no-restore --verbosity normal
+      #  working-directory: SW.VideoUploadService.Core.Tests
+        
         # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
